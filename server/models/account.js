@@ -39,6 +39,11 @@ export default (sequelize, DataTypes) => {
       foreignKey: 'userId',
       onDelete: 'CASCADE'
     });
+
+    Account.hasMany(models.Contact, {
+      foreignKey: 'accountId',
+      onDelete: 'CASCADE'
+    });
   };
   return Account;
 };
