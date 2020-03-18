@@ -10,4 +10,5 @@ export default (app) => {
     app.post('/api/users', Users.signUp); // API route for user to signup
 
     app.post('/api/users/:userId/accounts', Accounts.create); // API route for user to create an account
+    app.get('/api/accounts', Accounts.list); // API route for user to get all accounts in the database
 };
