@@ -28,7 +28,7 @@ export default (sequelize, DataTypes) => {
       }
     }
   }, {});
-  Opportunity.associate = function(models) {
+  Opportunity.associate = (models) => {
     Opportunity.belongsTo(models.Account, {
       foreignKey: 'accountId',
       onDelete: 'CASCADE'
