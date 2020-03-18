@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Accounts', {
+    return queryInterface.createTable('Opportunities', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,25 +11,32 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      industry: {
-        allowNull: true,
+      open_date: {
+        allowNull: false,
+        type: Sequelize.DATEONLY
+      },
+      close_date: {
+        type: Sequelize.DATEONLY
+      },
+      stage: {
         type: Sequelize.STRING
       },
-      website: {
-        allowNull: true,
+      value: {
+        type: Sequelize.INTEGER
+      },
+      priority: {
         type: Sequelize.STRING
       },
       notes: {
-        allowNull: true,
         type: Sequelize.STRING
       },
-      userId: {
+      accountId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'Users',
+          model: 'Accounts',
           key: 'id',
-          as: 'userId',
+          as: 'accountId'
         }
       },
       createdAt: {
@@ -42,5 +49,5 @@ module.exports = {
       }
     });
   },
-  down: queryInterface /* , Sequelize */ =>  queryInterface.dropTable('Accounts')
+  down: queryInterface /* , Sequelize */ =>  queryInterface.dropTable('Opportunities')
 };
